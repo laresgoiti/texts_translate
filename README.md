@@ -5,7 +5,7 @@
 Manage texts in [Sketch](http://bohemiancoding.com/sketch/) in multiple locales by this plugin.
 
 ## Installation
-Download and double-click **sketch_translate** file and let Sketch automatically install the plugin.
+[Download](https://github.com/laresgoiti/texts_translate/archive/master.zip) and double-click **sketch_translate** file and let Sketch automatically install the plugin.
 
 ## Usage
 - Go to <code>Plugins -> Texts Translation -> Save locale</code> to save current locale.
