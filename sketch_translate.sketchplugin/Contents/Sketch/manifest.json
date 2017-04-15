@@ -1,0 +1,23 @@
+{
+    "name" : "Texts Translation",
+    "identifier" : "com.sketchapp.examples.sketch-translate",
+    "version" : "0.1",
+    "description" : "Texts translation in Sketch",
+    "authorEmail" : "slaresgoiti@gmail.com",
+    "author" : "Santi Laresgoiti Navarro",
+    "commands" : [
+    {
+      "name" : "Change locale",
+      "identifier" : "change-locale",
+      "script" : "text-translation.js",
+      "handler" : "changeLocale",
+      "shortcut" : ""
+    },{
+      "name" : "Save locale",
+      "identifier" : "save-locale",
+      "script" : "text-translation.js",
+      "handler" : "saveLocale",
+      "shortcut" : ""
+    }
+  ]
+}
