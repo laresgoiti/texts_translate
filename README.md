@@ -26,4 +26,4 @@ You can create a new locale by:
 4. This locale will be available when "Change locale" action.
 
 ## Feedback
-If you discover any issues or you think this plugin can be improved by new features, create a new issue in this repository or find me on twitter [@laresgoiti](twitter.com/laresgoiti).
+If you discover any issues or you think this plugin can be improved by new features, create a new issue in this repository or find me on twitter [@laresgoiti](https://twitter.com/laresgoiti).
