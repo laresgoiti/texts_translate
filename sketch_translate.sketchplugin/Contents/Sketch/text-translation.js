@@ -264,8 +264,8 @@ function getLocaleContext(context) {
         var fileManager = [NSFileManager defaultManager]
 
         // Create translations folder if does not exists
-        if(![fileManager fileExistsAtPath:translationsFolderPath])
-            if(![fileManager createDirectoryAtPath:translationsFolderPath withIntermediateDirectories:'YES' attributes:nil error:'NULL'])
+        if(![fileManager fileExistsAtPath:translationsFolderPath isDirectory:'YES'])
+            if(![fileManager createDirectoryAtPath:translationsFolderPath withIntermediateDirectories:'YES' attributes:nil error:nil])
                 [app displayDialog:'It has been an error when creating translations folder.' withTitle:'Error']
 
         // Check translations folder
