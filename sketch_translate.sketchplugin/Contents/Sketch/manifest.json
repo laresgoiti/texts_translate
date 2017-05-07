@@ -1,7 +1,7 @@
 {
     "name" : "Texts Translation",
     "identifier" : "com.sketchapp.examples.sketch-translate",
-    "version" : "0.1",
+    "version" : "0.1.1",
     "description" : "Texts translation in Sketch",
     "authorEmail" : "slaresgoiti@gmail.com",
     "author" : "Santi Laresgoiti Navarro",
