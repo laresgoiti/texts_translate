@@ -257,16 +257,24 @@ function getLocaleContext(context) {
         [app displayDialog:'You need to save the document in your computer in order to save texts translations.' withTitle:'Document required']
     else {
         var documentName = document.displayName()
-        var documentFolderPath = decodeURIComponent(document.fileURL()).replace('file:///','').replace(documentName,"")
+        var documentFolderPath = decodeURIComponent(document.fileURL()).replace('file://','').replace(documentName,"")
         var translationsFolderName = documentName.replace('.sketch','_translations')
         var translationsFolderPath = documentFolderPath+translationsFolderName+'/'
 
         var fileManager = [NSFileManager defaultManager]
 
         // Create translations folder if does not exists
-        if(![fileManager fileExistsAtPath:translationsFolderPath isDirectory:'YES'])
-            if(![fileManager createDirectoryAtPath:translationsFolderPath withIntermediateDirectories:'YES' attributes:nil error:nil])
-                [app displayDialog:'It has been an error when creating translations folder.' withTitle:'Error']
+        if([fileManager fileExistsAtPath:translationsFolderPath]){
+          // translation folder exists
+        }else{
+          if([fileManager createDirectoryAtPath:translationsFolderPath withIntermediateDirectories:'YES' attributes:nil error:nil])
+          {
+            context.document.showMessage('Translations folder created.')
+          }else {
+            [app displayDialog:'It has been an error when creating translations folder.' withTitle:'Error']
+          }
+
+        }
 
         // Check translations folder
         if([fileManager fileExistsAtPath:translationsFolderPath])
