@@ -2,6 +2,7 @@
     "name" : "Texts Translation",
     "identifier" : "com.sketchapp.examples.sketch-translate",
     "version" : "0.1.1",
+    "appcast": "https://api.sketchpacks.com/v1/plugins/com.sketchapp.examples.sketch-translate/appcast",
     "description" : "Texts translation in Sketch",
     "authorEmail" : "slaresgoiti@gmail.com",
     "author" : "Santi Laresgoiti Navarro",
