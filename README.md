@@ -5,6 +5,12 @@
 Manage texts in [Sketch](http://bohemiancoding.com/sketch/) in multiple locales by this plugin.
 
 ## Installation
+With Sketch Runner, just go to the `install` command and search for `Sketch Texts Translate`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
+
+![Install Sketch Text Translates](texts%20translation%20-%20runner.png)
+
+OR
+
 [![Install Texts Translate with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Texts Translate with Sketchpacks")](https://sketchpacks.com/laresgoiti/texts_translate/install)
 
 OR
