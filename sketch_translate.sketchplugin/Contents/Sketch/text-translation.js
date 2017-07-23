@@ -257,8 +257,8 @@ function getLocaleContext(context) {
         [app displayDialog:'You need to save the document in your computer in order to save texts translations.' withTitle:'Document required']
     else {
         var documentName = document.displayName()
-        var documentFolderPath = decodeURIComponent(document.fileURL()).replace('file://','').replace(documentName,"")
-        var translationsFolderName = documentName.replace('.sketch','_translations')
+        var documentFolderPath = decodeURIComponent(document.fileURL()).replace('file://','').replace(documentName,'').replace('.sketch','')
+        var translationsFolderName = documentName.replace('.sketch','')+'_translations'
         var translationsFolderPath = documentFolderPath+translationsFolderName+'/'
 
         var fileManager = [NSFileManager defaultManager]
