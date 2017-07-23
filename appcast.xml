@@ -6,12 +6,11 @@
     <description>Manage texts in Sketch in multiple locales by this plugin.</description>
     <language>en</language>
     <item>
-      <title>0.1.2</title>
+      <title>0.1.3</title>
       <description>
         <![CDATA[
           <ul>
-            <li>Added integration with Sketch App's Update System</li>
-            <li>Added integration with Sketch Runner</li>
+            <li>Fixing an issue with hidden translation folders when Sketch file has no extension (move your translation files if affected!).</li>
           </ul>
         ]]>
       </description>
