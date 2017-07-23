@@ -1,4 +1,5 @@
 # Sketch Texts Translate
+[![Download from Sketchpacks.com](https://badges.sketchpacks.com/plugins/com.sketchapp.examples.sketch-translate/version.svg)](https://api.sketchpacks.com/v1/plugins/com.sketchapp.examples.sketch-translate/download) [![Compatible Sketch Version](https://badges.sketchpacks.com/plugins/com.sketchapp.examples.sketch-translate/compatibility.svg)](https://sketchpacks.com/laresgoiti/texts_translate)
 
 ![Sketch Texts Translate demo](http://g.recordit.co/uDd59vA5I9.gif)
 
