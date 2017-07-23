@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Texts Translate</title>
+    <link>https://raw.githubusercontent.com/laresgoiti/texts_translate/master/appcast.xml</link>
+    <description>Manage texts in Sketch in multiple locales by this plugin.</description>
+    <language>en</language>
+    <item>
+      <title>0.1.2</title>
+      <description>
+        <![CDATA[
+          <ul>
+            <li>Added integration with Sketch App's Update System</li>
+            <li>Added integration with Sketch Runner</li>
+          </ul>
+        ]]>
+      </description>
+      <pubDate>Sun, Jul 23 2017</pubDate>
+      <enclosure url="https://github.com/laresgoiti/texts_translate/archive/master.zip" type="application/octet-stream" sparkle:version="0.1.2"/>
+    </item>
+  </channel>
+</rss>

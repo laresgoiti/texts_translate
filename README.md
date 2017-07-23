@@ -5,11 +5,17 @@
 Manage texts in [Sketch](http://bohemiancoding.com/sketch/) in multiple locales by this plugin.
 
 ## Installation
-[![Install Texts Translate with Sketchpacks](http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png "Install Texts Translate with Sketchpacks")](https://sketchpacks.com/laresgoiti/texts_translate/install)
+[Download](https://github.com/laresgoiti/texts_translate/archive/master.zip) and double-click **sketch_translate** file and let Sketch automatically install the plugin.
 
 OR
 
-[Download](https://github.com/laresgoiti/texts_translate/archive/master.zip) and double-click **sketch_translate** file and let Sketch automatically install the plugin.
+<a href="https://sketchpacks.com/laresgoiti/texts_translate/install" rel="nofollow" title="Install Texts Translate with Sketchpacks">
+  <img width="160" height="41" src="http://sketchpacks-com.s3.amazonaws.com/assets/badges/sketchpacks-badge-install.png" alt="Install Texts Translate with Sketchpacks">
+</a>
+
+<a href="http://bit.ly/SketchRunnerWebsite" rel="nofollow" title="Install via Sketch Runner">
+  <img width="160" height="41" src="http://sketchrunner.com/img/badge_blue.png" >
+</a>
 
 ## Usage
 - Go to <code>Plugins -> Texts Translation -> Save locale</code> to save current locale.
