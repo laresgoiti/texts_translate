@@ -150,6 +150,25 @@ function saveLocaleToFile(localeContext,textLayersContent) {
 
 }
 
+function fillOverride(defaultValue, override) {
+    const newOverride = defaultValue || NSMutableDictionary.dictionary()
+    const newMutableOverrides = NSMutableDictionary.dictionaryWithDictionary(newOverride)
+
+    var overrideKeys = Object.keys(override)
+    var overrideKeysLength = overrideKeys.length
+    for (var i = 0; i <  overrideKeysLength; i++) {
+       var key = overrideKeys[i]
+       var value = override[key]
+       if (typeof value == "string") {
+           newMutableOverrides.setObject_forKey(value,key)
+       } else {
+           const subdictionary = newMutableOverrides.objectForKey(key)
+           newMutableOverrides.setObject_forKey(fillOverride(subdictionary, value),key)
+       }
+    }
+    return newMutableOverrides
+}
+
 function updateTextsLayersFromLocale(context,localeContext,selected_locale) {
 
     var document = context.document
@@ -161,15 +180,26 @@ function updateTextsLayersFromLocale(context,localeContext,selected_locale) {
         for (var i = 0; i < pages.count(); i++) {
             var layers = pages[i].children()
             for (var j = 0; j < layers.count(); j++) {
-                if(layers[j].class() === MSTextLayer)
-                {
+                if (layers[j].class() === MSTextLayer) {
                     key_string = unescape(layers[j].objectID())
                     value_string = unescape(layers[j].stringValue())
                     for (var located_key in localeText) {
                         located_value = localeText[located_key]
-                        if(key_string == located_key)
-                        {
+                        if(key_string == located_key) {
                             layers[j].setStringValue(located_value)
+                        }
+                    }
+                } else if(layers[j].class() === MSSymbolInstance) {
+                    key_string = unescape(layers[j].objectID())
+                    value = localeText[key_string]
+                    if (value) {
+                        //log("-----------------------------------------------------------------")
+                        //log("Overrides Object: "+layers[j].objectID()+" with: "+JSON.stringify(value))
+                        //log("Overrides before: "+layers[j].overrides())
+                        var overrides = fillOverride(layers[j].overrides(), localeText[key_string])
+                        //log("Overrides after: "+overrides)
+                        if (overrides && Object.keys(overrides).length > 0) {
+                            layers[j].overrides = overrides
                         }
                     }
                 }
@@ -220,20 +250,61 @@ function getNewLocaleByUser(){
 
 }
 
+function processOverrides(override, possibleTextfields) {
+    var returnValue = {}
+    var overrideKeys = Object.keys(override)
+    var overrideKeysLength = overrideKeys.length
+            	
+    for (var i = 0; i <  overrideKeysLength; i++) {
+        var key = overrideKeys[i]
+        var value = override[key]
+        if ((value.class()+"").indexOf("String") != -1) {
+            if (possibleTextfields[key]) {
+                returnValue[key] = unescape(value)
+            }
+        } else if (value) {
+            value = processOverrides(value, possibleTextfields)
+            if (value && Object.keys(value).length > 0) {
+                returnValue[key] = value
+            }
+        } 
+    }
+    return returnValue
+}
+
 function getTextLayersContent(context) {
 
     var document = context.document
     var pages = document.pages()
     var textLayerContent = {}
+    
+    // first collect all textlayers
+    var symbolTextLayer = {}
+    for (var i = 0; i < pages.count(); i++) {
+        var layers = pages[i].children()
+        for (var j = 0; j < layers.count(); j++) {
+            if (layers[j].class() === MSTextLayer) {
+                key_string = unescape(layers[j].objectID())
+                symbolTextLayer[key_string] = true
+            }
+        }
+    }
 
     for (var i = 0; i < pages.count(); i++) {
         var layers = pages[i].children()
         for (var j = 0; j < layers.count(); j++) {
-            if(layers[j].class() === MSTextLayer)
-            {
+            if (layers[j].class() === MSTextLayer) {
                 key_string = unescape(layers[j].objectID())
                 value_string = unescape(layers[j].stringValue())
                 textLayerContent[key_string] = value_string
+            } else if (layers[j].class() === MSSymbolInstance) {
+                key_string = unescape(layers[j].objectID())
+                if (layers[j].overrides()) {
+                    value = processOverrides(layers[j].overrides(), symbolTextLayer)
+                    if (value && Object.keys(value).length > 0) {
+                        textLayerContent[key_string] = value
+                    }
+                }
             }
         }
     }
